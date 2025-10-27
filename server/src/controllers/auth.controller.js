@@ -30,8 +30,9 @@ const login = async (req, res, next) => {
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
+      sameSite: 'none',
     });
-    
+
     return res
       .status(200)
       .json({

@@ -12,7 +12,7 @@ import commentRoute from './routes/comment.route.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({credentials: true, origin: true}));
+app.use(cors({credentials: true, origin: process.env.FRONTEND_URL}));
 app.use(express.json());
 app.use(cookieParser());
 
