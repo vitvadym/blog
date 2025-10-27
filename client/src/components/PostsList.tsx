@@ -6,7 +6,7 @@ import PageLoader from './PageLoader';
 
 const PostsList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data, isLoading, isError, isSuccess } = usePostQuery({
+  const { data, isLoading } = usePostQuery({
     admin: false,
     params: searchParams.toString(),
   });
