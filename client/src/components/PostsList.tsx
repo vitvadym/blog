@@ -17,15 +17,6 @@ const PostsList = () => {
     setSearchParams(searchParams);
   };
 
-  console.log({ page });
-
-  // if (isLoading) return <div>Loading...</div>;
-  // if (isError) return <div>Error loading posts</div>;
-
-  // if (!data?.posts.length) {
-  //   return <NoData />
-  // }
-
   return (
     <>
       {!data?.posts.length && !isLoading && <NoData />}

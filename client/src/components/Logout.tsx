@@ -9,10 +9,9 @@ const Logout = () => {
 
   const { mutate } = useMutation({
     mutationFn: () => authService.logout(),
-    onSuccess: (data) => {
+    onSuccess: () => {
       navigate('/');
       logout();
-      console.log(data)
     },
   });
 
