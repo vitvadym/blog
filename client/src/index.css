@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@plugin 'daisyui' {
+  themes: lofi --default, dim --prefersdark;
+}
+
+:root::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+/* @theme {
+  --color-primary: #1b3c53;
+  --color-secondary: #234c6a;
+  --color-accent: #d2c1b6;
+} */
+
+.page-container {
+  @apply container mx-auto px-3.5 flex flex-col min-h-screen;
+}
+
+.ql-toolbar .ql-stroke {
+  fill: none;
+  stroke: var(--color-primary) !important;
+}
+
+.ql-toolbar .ql-fill {
+  fill: var(--color-primary) !important;
+  stroke: none;
+}
+
+.ql-toolbar .ql-picker {
+  color: var(--color-primary) !important;
+}
+
+/* .ql-picker-options {
+  background: var(--color-background) !important;
+} */
