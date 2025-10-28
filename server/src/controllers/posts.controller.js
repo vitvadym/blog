@@ -86,59 +86,6 @@ const deletePost = async (req, res, next) => {
   }
 };
 
-// const undraftPost = async (req, res, next) => {
-//   try {
-//     const { id } = req.body;
-//     console.log('id ', id);
-
-//     if (!id) {
-//       return next(new ApiError(400, 'Post ID is required'));
-//     }
-
-//     const postFromDb = await isPostExist(id);
-
-//     if (!postFromDb) {
-//       return next(new ApiError(404, 'Post not found'));
-//     }
-
-//     const [updatedPost] = await db
-//       .update(posts)
-//       .set({ isPublished: true })
-//       .where(eq(posts.id, id))
-//       .returning();
-
-//     return res.status(200).json({ message: 'Success', post: updatedPost });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-
-// const setPostToDraft = async (req, res, next) => {
-//   try {
-//     const { id } = req.body;
-
-//     if (!id) {
-//       return next(new ApiError(400, 'Post ID is required'));
-//     }
-
-//     const postFromDb = await isPostExist(id);
-
-//     if (!postFromDb) {
-//       return next(new ApiError(404, 'Post not found'));
-//     }
-
-//     const [updatedPost] = await db
-//       .update(posts)
-//       .set({ isPublished: false })
-//       .where(eq(posts.id, id))
-//       .returning();
-
-//     return res.status(200).json({ message: 'Success', post: updatedPost });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-
 const togglePostPublishStatus = async (req, res, next) => {
   try {
     const { id } = req.body;

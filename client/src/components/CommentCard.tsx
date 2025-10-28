@@ -1,6 +1,6 @@
 import React from 'react';
-import type { IComment } from '../../../types';
-import { formatDate } from '../../../helpers/formatDate';
+import type { IComment } from '../types';
+import { formatDate } from '../helpers/formatDate';
 
 type Props = {
   comment: IComment;

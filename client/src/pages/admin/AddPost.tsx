@@ -1,5 +1,5 @@
 import Editor from './components/Editor';
-import Fieldset from './components/Fieldset';
+import Fieldset from '../../components/Fieldset';
 import usePostStore from '../../store/postStore';
 import { categoryService } from '../../api/categoryService';
 import { useQuery, useMutation } from '@tanstack/react-query';

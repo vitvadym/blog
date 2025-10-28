@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import type { IPost } from '../types';
 import { formatDate } from '../helpers/formatDate';
 import PageLoader from '../components/PageLoader';
-import Comments from './admin/components/Comments';
+import Comments from '../components/Comments';
 
 const PostPage = () => {
   const { slug } = useParams();
@@ -26,7 +26,7 @@ const PostPage = () => {
     <>
       {isLoading && <PageLoader />}
       {isSuccess && post && (
-        <div className='mt-10 mb-10'>
+        <div className='mt-10 mb-20'>
           <p className='text-center text-primary py-4 font-medium'>
             Published on {formatDate(post.createdAt)}
           </p>

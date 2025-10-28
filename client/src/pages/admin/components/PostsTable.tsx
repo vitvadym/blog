@@ -5,7 +5,7 @@ import usePostQuery from '../../../hooks/usePostQuery';
 import NoData from '../../../components/NoData';
 import PageLoader from '../../../components/PageLoader';
 
-const PostsList = () => {
+const PostsTable = () => {
   const { data, isLoading } = usePostQuery({ admin: true });
   return (
     <>
@@ -33,4 +33,4 @@ const PostsList = () => {
   );
 };
 
-export default PostsList;
+export default PostsTable;

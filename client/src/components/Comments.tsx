@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentCard from './CommentCard';
-import type { IComment } from '../../../types';
+import type { IComment } from '../types';
 
 
 type Props = {

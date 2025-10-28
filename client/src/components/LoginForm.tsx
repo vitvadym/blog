@@ -4,7 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { authService } from '../api/authService';
 import useAuthStore, { type AuthStore } from '../store/authStore';
 import type { AxiosError } from 'axios';
-import Fieldset from '../pages/admin/components/Fieldset';
+import Fieldset from './Fieldset';
 
 const LoginForm = () => {
   const [email, setEmail] = useState<string>(

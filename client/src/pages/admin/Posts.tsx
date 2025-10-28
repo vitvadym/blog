@@ -1,7 +1,7 @@
-import PostsList from './components/PostsList';
+import PostsTable from './components/PostsTable';
 
 const PostList = () => {
-  return <PostsList />;
+  return <PostsTable />;
 };
 
 export default PostList;

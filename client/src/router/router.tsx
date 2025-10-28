@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from '../pages/Layout';
+import ClientLayout from '../pages/ClientLayout';
 import Home from '../pages/Home';
 import PostPage from '../pages/PostPage';
 import AdminLayout from '../pages/admin/AdminLayout';
@@ -13,7 +13,7 @@ import ProtectedRoute from '../pages/ProtectedRoute';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <ClientLayout />,
     children: [
       { index: true, element: <Home /> },
       { path: '/post/:slug', element: <PostPage /> },
