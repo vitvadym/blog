@@ -1,7 +1,5 @@
 import db from '../../config/db.js';
 import { categories } from './categories.js';
-import { posts } from './posts.js';
-import { posts as postsTable } from '../schema/post.js';
 import { category } from '../schema/category.js'
 import { user } from '../schema/user.js';
 
@@ -14,9 +12,8 @@ const run = async () => {
       role: 'admin',
     };
 
-    // await db.insert(user).values(adminDefault).onConflictDoNothing();
-    // await db.insert(category).values(categories).onConflictDoNothing();
-    await db.insert(postsTable).values(posts).onConflictDoNothing();
+    await db.insert(user).values(adminDefault).onConflictDoNothing();
+    await db.insert(category).values(categories).onConflictDoNothing();
 
     console.log('Seeding completed successfully.');
 
