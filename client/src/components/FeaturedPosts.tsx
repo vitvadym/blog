@@ -27,7 +27,6 @@ const FeaturedPosts = () => {
       }>(),
   });
 
-  console.log('posts', data);
   return (
     <div className='overflow-hidden'>
       {isLoading && <PageLoader />}

@@ -50,10 +50,15 @@ const createComment = async (req, res, next) => {
 const deleteComment = async (req, res, next) => {
   try {
     const { id } = req.body;
-    const deletedComment = await db.delete(comments).where({ id }).returning();
+    const deletedCommentId = await db
+      .delete(comments)
+      .where(eq(comments.id, id))
+      .returning({
+        id: comments.id,
+      });
     return res
-      .status(204)
-      .json({ message: 'Success', comment: deletedComment });
+      .status(200)
+      .json({ message: 'Success', comment: deletedCommentId });
   } catch (error) {
     next(error);
   }

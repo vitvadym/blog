@@ -22,6 +22,7 @@ router.post(
 router.post('/generate-content', isAdmin, aiController.generatePostContent)
 
 router.delete('/delete-post', isAdmin, postController.deletePost);
+router.delete('/delete-comment', isAdmin, commentController.deleteComment);
 
 router.patch('/toggle-publish', isAdmin, postController.togglePostPublishStatus);
 // router.patch('/draft-post', isAdmin, postController.setPostToDraft);

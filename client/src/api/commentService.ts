@@ -14,6 +14,10 @@ class CommentService {
   public async createComment<T, U>(data: T): Promise<U> {
     return this.httpClient.post<T, U>('/comments/create', data);
   }
+
+  public async deleteComment<T>(data: T): Promise<void> {
+    return this.httpClient.delete('/admin/delete-comment', data);
+  }
 }
 
 export const commentService = new CommentService();
