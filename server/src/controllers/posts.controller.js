@@ -1,7 +1,11 @@
-import { posts, category as categoryTable, comments as commentsTable } from '../db/schema/index.js';
+import {
+  posts,
+  category as categoryTable,
+  comments as commentsTable,
+} from '../db/schema/index.js';
 import ik from '../config/imageKit.js';
 import db from '../config/db.js';
-import { eq, and, count, not } from 'drizzle-orm';
+import { eq, and, count, not, sql } from 'drizzle-orm';
 import { createPostValidation } from '../db/schema/post.js';
 import createSlug from '../utils/slugify.js';
 import ApiError from '../utils/apiError.js';
@@ -127,7 +131,6 @@ const getSinglePost = async (req, res, next) => {
       .from(posts)
       .where(eq(posts.slug, slug));
 
-
     if (!postFromDb) {
       return next(new ApiError(404, 'Post not found'));
     }
@@ -156,10 +159,17 @@ const getAllPostsAdmin = async (req, res, next) => {
 
 const getPostsClient = async (req, res, next) => {
   try {
-    const { category, page } = req.query;
+    const { category, page, search } = req.query;
     const pageSize = 6;
 
     let whereClause = eq(posts.isPublished, true);
+
+    if (search) {
+      whereClause = and(
+        whereClause,
+        sql`to_tsvector('english', ${posts.title}) @@ plainto_tsquery('english', ${search})`,
+      );
+    }
 
     if (category) {
       whereClause = and(whereClause, eq(posts.categoryId, Number(category)));
